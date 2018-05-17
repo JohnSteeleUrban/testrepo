@@ -2,6 +2,8 @@ FROM microsoft/dotnet:latest
 COPY . /app
 WORKDIR /app
  
+VOLUME /docs
+
 RUN dotnet restore
 RUN dotnet build
  
