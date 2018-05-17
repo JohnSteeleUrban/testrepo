@@ -29,7 +29,7 @@ namespace dotnettest.Controllers
                 ble = ble + "-----" + file;
             } }
             //ViewData["Files"] = ble;
-            var model = new Files { Stuff = ble };
+            var model = new Files { Stuff = path };
             return View(model);
         }
 
