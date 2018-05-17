@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using dotnettest.Models;
+using System.IO;
+using System.Reflection;
 
 namespace dotnettest.Controllers
 {
@@ -18,7 +20,14 @@ namespace dotnettest.Controllers
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
-
+            string path = Path.Combine(Environment.CurrentDirectory, @"docs\");
+            var files = Directory.GetFiles(path).ToList();
+            var ble = "";
+            foreach (var file in files)
+            {
+                ble = ble + "-----" + file;
+            }
+            ViewData["Files"] = ble;
             return View();
         }
 
