@@ -23,13 +23,23 @@ namespace dotnettest.Controllers
             ViewData["Message"] = "Your application description page.";
             try
             {
-                string path = Path.Combine(Environment.CurrentDirectory, @"docs\");
+                //string path = Path.Combine(Environment.CurrentDirectory, @"docs\");
+                var path = Environment.CurrentDirectory;
+                var dir = Directory.GetDirectories(path);
                 var files = Directory.GetFiles(path).ToList();
                 if (files.Any())
                 {
                     foreach (var file in files)
                     {
                         ble = ble + "-----" + file;
+                    }
+                }
+                ble = ble + "======================DIRECTORIES";
+                if (dir.Any())
+                {
+                    foreach (var d in dir)
+                    {
+                        ble = ble + "-----" + d;
                     }
                 }
                 //ViewData["Files"] = ble;
