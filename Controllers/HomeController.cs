@@ -23,10 +23,11 @@ namespace dotnettest.Controllers
             string path = Path.Combine(Environment.CurrentDirectory, @"docs\");
             var files = Directory.GetFiles(path).ToList();
             var ble = "";
+            if (files.Any()) { 
             foreach (var file in files)
             {
                 ble = ble + "-----" + file;
-            }
+            } }
             ViewData["Files"] = ble;
             return View();
         }
