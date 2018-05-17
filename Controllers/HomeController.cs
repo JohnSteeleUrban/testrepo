@@ -19,17 +19,27 @@ namespace dotnettest.Controllers
 
         public IActionResult About()
         {
+             var ble = "";
             ViewData["Message"] = "Your application description page.";
-            string path = Path.Combine(Environment.CurrentDirectory, @"docs\");
-            var files = Directory.GetFiles(path).ToList();
-            var ble = "";
-            if (files.Any()) { 
-            foreach (var file in files)
+            try
             {
-                ble = ble + "-----" + file;
-            } }
-            //ViewData["Files"] = ble;
-            var model = new Files { Stuff = path };
+                string path = Path.Combine(Environment.CurrentDirectory, @"docs\");
+                var files = Directory.GetFiles(path).ToList();
+                if (files.Any())
+                {
+                    foreach (var file in files)
+                    {
+                        ble = ble + "-----" + file;
+                    }
+                }
+                //ViewData["Files"] = ble;
+            }
+           
+            catch (Exception e)
+            {
+                ble = e.InnerException.ToString();
+            }
+            var model = new Files { Stuff = ble };
             return View(model);
         }
 
