@@ -28,8 +28,9 @@ namespace dotnettest.Controllers
             {
                 ble = ble + "-----" + file;
             } }
-            ViewData["Files"] = ble;
-            return View();
+            //ViewData["Files"] = ble;
+            var model = new Files { Stuff = ble };
+            return View(model);
         }
 
         public IActionResult Contact()
