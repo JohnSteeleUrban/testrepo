@@ -37,7 +37,7 @@ namespace dotnettest.Controllers
            
             catch (Exception e)
             {
-                ble = e.InnerException.ToString();
+                ble = e.ToString();
             }
             var model = new Files { Stuff = ble };
             return View(model);
