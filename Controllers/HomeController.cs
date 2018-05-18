@@ -35,14 +35,7 @@ namespace dotnettest.Controllers
                     }
                 }
                 ble = ble + "======================DIRECTORIES";
-                //if (dir.Any())
-                //{
-                //    foreach (var d in dir)
-                //    {
-                //        ble = ble + "-----" + d;
-                //    }
-                //}
-                //ViewData["Files"] = ble;
+
             }
            
             catch (Exception e)
